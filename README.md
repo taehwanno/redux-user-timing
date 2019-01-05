@@ -1,6 +1,11 @@
 # redux-user-timing
 
-> User Timing API middleware for profiling redux application
+> User Timing middleware for profiling redux application
+
+
+## Introduction
+
+Measuring performance is crucial for optimizing the application. Using with [User Timing API](https://www.html5rocks.com/en/tutorials/webperformance/usertiming/), You can inspect performance about each dispatched redux action. For more details, check out [Carl Vitullo's Blog: Performance Profiling a Redux App](https://medium.com/@vcarl/performance-profiling-a-redux-app-c85e67bf84ae).
 
 
 ## Installation
@@ -53,6 +58,10 @@ const configureStore = initialState => {
 
 export default configureStore;
 ```
+
+## Thanks
+
+This idea is inspired by clarkbw. and thanks for Carl Vitullo about kind blog explanation.
 
 
 ## License
