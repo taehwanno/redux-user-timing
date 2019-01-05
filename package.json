@@ -34,6 +34,7 @@
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "coveralls": "^3.0.2",
     "eslint": "^5.3.0",
     "eslint-config-prettier": "^3.3.0",
     "husky": "^1.2.1",

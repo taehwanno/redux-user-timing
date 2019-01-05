@@ -21,6 +21,8 @@ jobs:
           command: npm run build
       - run:
           name: Test
-          command: npm run test:coverage
+          command: |
+            npm run test:coverage
+            cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
       - store_artifacts:
           path: coverage

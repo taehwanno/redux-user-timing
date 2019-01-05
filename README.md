@@ -1,4 +1,4 @@
-# redux-user-timing
+# redux-user-timing [![npm version](https://badge.fury.io/js/redux-user-timing.svg)](https://badge.fury.io/js/redux-user-timing) [![Coverage Status](https://coveralls.io/repos/github/taehwanno/redux-user-timing/badge.svg)](https://coveralls.io/github/taehwanno/redux-user-timing) [![CircleCI](https://circleci.com/gh/taehwanno/redux-user-timing.svg?style=shield&circle-token=23145bdf74048861baf3d443ad6d2124e5444350)](https://circleci.com/gh/taehwanno/redux-user-timing)
 
 > User Timing middleware for profiling redux application
 
