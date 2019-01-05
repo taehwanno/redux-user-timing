@@ -1,0 +1,8 @@
+.babelrc
+.circleci
+.editorconfig
+.eslintignore
+.eslintrc.js
+husky.config.js
+lint-staged.config.js
+prettier.config.js
