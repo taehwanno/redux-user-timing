@@ -20,8 +20,8 @@ describe('user timing middleware', () => {
   });
 
   it('should execute performance mark and measure with intended sequence', () => {
-    const action = { type: 'ACTION' };
     const { next, invoke } = createMiddleware();
+    const action = { type: 'ACTION' };
     global.performance = {};
     global.performance.mark = next;
     global.performance.measure = next;
@@ -36,6 +36,22 @@ describe('user timing middleware', () => {
       'ACTION_START',
       'ACTION_END',
     );
+    global.performance = undefined;
+  });
+
+  it('should print a warning message and return action when action type not exists or non-string.', () => {
+    const error = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { next, invoke } = createMiddleware();
+    const action = {};
+    global.performance = {};
+    global.performance.mark = next;
+    global.performance.measure = next;
+    const result = invoke(action);
+    expect(result).toEqual(action);
+    expect(next).toHaveBeenCalledWith(action);
+    expect(next).toHaveBeenCalledTimes(1);
+    expect(error).toHaveBeenCalled();
+    error.mockRestore();
     global.performance = undefined;
   });
 });

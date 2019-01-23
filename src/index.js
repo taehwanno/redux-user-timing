@@ -3,6 +3,17 @@ const middleware = () => next => action => {
     return next(action);
   }
 
+  if (
+    typeof action !== 'object' ||
+    !action.type ||
+    typeof action.type !== 'string'
+  ) {
+    console.error(
+      'Warning: action type is not valid. Performance measurement is not working properly.',
+    );
+    return next(action);
+  }
+
   performance.mark(`${action.type}_START`);
   const result = next(action);
   performance.mark(`${action.type}_END`);
