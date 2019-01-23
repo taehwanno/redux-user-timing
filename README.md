@@ -2,11 +2,13 @@
 
 > User Timing middleware for profiling redux application
 
-
 ## Introduction
 
 Measuring performance is crucial for optimizing the application. Using with [User Timing API](https://www.html5rocks.com/en/tutorials/webperformance/usertiming/), You can inspect performance about each dispatched redux action. For more details, check out [Carl Vitullo's Blog: Performance Profiling a Redux App](https://medium.com/@vcarl/performance-profiling-a-redux-app-c85e67bf84ae).
 
+- [Performance Analysis in Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference)
+
+![Performance Analysis Example in Chrome DevTools](https://user-images.githubusercontent.com/7760903/51604574-832b2b80-1f50-11e9-8b3a-3f60255fef50.png)
 
 ## Installation
 
@@ -25,18 +27,19 @@ Then enable redux-user-timing with `applyMiddleware()`
 ```js
 import { createStore, applyMiddleware } from 'redux';
 import userTiming from 'redux-user-timing';
-import rootReducer from './reducers/index';
+import rootReducer from './reducers';
 
-// Note: this API requires redux@>=3.1.0
 const store = createStore(rootReducer, applyMiddleware(userTiming));
 ```
 
 Please, use this middleware only for development environment.
 
+- `configureStore.js`
+
 ```js
-// configureStore.js
 import { createStore, applyMiddleware } from 'redux';
 import userTiming from 'redux-user-timing';
+import rootReducer from './reducers';
 
 const configureStore = initialState => {
   const middlewares = [
@@ -44,6 +47,7 @@ const configureStore = initialState => {
   ];
 
   if (process.env.NODE_ENV !== 'production') {
+    // Recommend to add redux-user-timing as a last middleware.
     middlewares.push(userTiming);
   }
 
@@ -62,7 +66,6 @@ export default configureStore;
 ## Thanks
 
 This idea is inspired by clarkbw. and thanks for Carl Vitullo about kind blog explanation.
-
 
 ## License
 
