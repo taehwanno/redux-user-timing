@@ -24,7 +24,7 @@
   "scripts": {
     "build": "microbundle",
     "clean": "rimraf dist",
-    "lint": "eslint src/*",
+    "lint": "eslint src/* test/*",
     "prettier": "prettier-eslint --write src/*.js test/*.js",
     "test": "jest",
     "test:coverage": "jest --coverage",
