@@ -8,6 +8,7 @@ const middleware = () => next => action => {
     !action.type ||
     typeof action.type !== 'string'
   ) {
+    // eslint-disable-next-line no-console
     console.error(
       'Warning: action type is not valid. Performance measurement is not working properly.',
     );
